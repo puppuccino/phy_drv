@@ -2,3 +2,7 @@ obj_dir
 eq/
 eq_prove*
 .vscode
+sim_build/
+results.xml
+__pycache__/
+.ccache/
