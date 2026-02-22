@@ -1,0 +1,30 @@
+[tasks]
+bmc
+prove_smt
+prove_pdr
+
+[options]
+multiclock on
+bmc:   mode bmc
+bmc:   depth 45
+prove_smt: mode prove
+prove_smt: depth 15
+prove_pdr: mode prove
+
+[engines]
+bmc: smtbmc z3
+prove_smt: smtbmc z3
+prove_pdr: abc pdr
+
+[script]
+read -sv CLK_CG.v
+read -sv cs_orig.sv
+read -sv wmac_phy_drv_spi_cnt.v
+read -formal miter.sv
+prep -top miter
+
+[files]
+CLK_CG.v
+cs_orig.sv
+wmac_phy_drv_spi_cnt.v
+miter.sv
